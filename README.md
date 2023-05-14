@@ -33,3 +33,6 @@ Due to the size of the word stream, the code should be implemented in a
 high performance 
 fashion both in terms of efficient algorithm and utilization of system resources. Where possible, 
 please include your analysis and evaluation. 
+
+## notes
+ please open with visual studio code
