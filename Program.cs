@@ -60,6 +60,7 @@ public class Program
         };
         #endregion
 
+        #region wordslist
         var words = new string[]
         {
              "a",
@@ -79,6 +80,7 @@ public class Program
         };
 
         var objFinder = new WordFinder(matrix);
+        #endregion
 
         var result = objFinder.Find(words);
 

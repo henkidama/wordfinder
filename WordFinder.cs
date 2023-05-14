@@ -33,6 +33,11 @@ public class WordFinder : IWordFinder
         words = new Dictionary<string, int>();
     }
 
+    /// <summary>
+    /// Method to find the words
+    /// </summary>
+    /// <param name="wordstream"></param>
+    /// <returns>list of words that found in the wordfinder</returns>
     public IEnumerable<string> Find(IEnumerable<string> wordstream)
     {
         if(wordstream == null) return new List<string>();
@@ -98,6 +103,17 @@ public class WordFinder : IWordFinder
         else return new List<string>();
     }
 
+    /// <summary>
+    /// method to iterate the wordfinder and find the word that we are looking for
+    /// </summary>
+    /// <param name="row"></param>
+    /// <param name="col"></param>
+    /// <param name="matrix"></param>
+    /// <param name="word"></param>
+    /// <param name="index"></param>
+    /// <param name="isVisited"></param>
+    /// <param name="eSearch"></param>
+    /// 
     private void Search(int row, int col, IEnumerable<string> matrix, string word, int index, bool[,] isVisited, eSearch eSearch)
     {
         //match exists, we need to store the word found it
@@ -138,7 +154,8 @@ public class WordFinder : IWordFinder
             Search(row + 1, col, matrix, word, index + 1, isVisited, eSearch);
             break;
         }
-            
+
+        //we need to set the letter to false because can exists the word from leftright or topdown    
         isVisited[row, col] = false;
     }
 
