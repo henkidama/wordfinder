@@ -3,6 +3,7 @@ public class Program
 {
     public static void Main(string []args)
     {
+        Console.WriteLine("-----------START-----------");
         #region matrix
         var matrix = new string [] 
         {

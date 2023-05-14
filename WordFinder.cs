@@ -2,10 +2,10 @@ namespace WordExercise;
 public class WordFinder : IWordFinder
 {
     private const int top = 10;
-    private IEnumerable<string> grid;
+    private readonly IEnumerable<string> grid;
     private Dictionary<string, int> words;
-    private bool[,] visited;
-    private int matrixLength;
+    private readonly bool[,] visited;
+    private readonly int matrixLength;
 
 /*
 * the time of this algorithm is O(V + E) the V is the number of vertices and E is the number of Edges in this case
@@ -100,6 +100,7 @@ public class WordFinder : IWordFinder
 
     private void Search(int row, int col, IEnumerable<string> matrix, string word, int index, bool[,] isVisited, eSearch eSearch)
     {
+        //match exists, we need to store the word found it
         if(index == word.Length)
         {
             //we're using a dictionary because we need to search the word in constant time O(1)
@@ -116,10 +117,14 @@ public class WordFinder : IWordFinder
             index = 0;
         }
 
+        //we need to return if we are outside the matrix
         if(row < 0 || row >= matrixLength || col < 0  || col >= matrixLength) return;
+        //if the next letter we are looking for not match then return
         if(word[index] != matrix.ElementAt(row)[col]) return;
+        //if we already visited the letter we return
         if(isVisited[row, col]) return;
 
+        //we mark the letter as visited
         isVisited[row, col] = true;
         
         //we need to setting up the type of search
