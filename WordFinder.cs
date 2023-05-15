@@ -146,10 +146,12 @@ public class WordFinder : IWordFinder
         //we need to setting up the type of search
         switch(eSearch)
         {
+            //left to right we need to add  col + 1 because we are searching the next letter to the next side (right)
             case eSearch.LeftRight:
             Search(row, col + 1, matrix, word, index + 1, isVisited, eSearch);
             break;
 
+            //top to bottom we need to plus 1 to the row because we are searching the next letter to bottom
             case eSearch.TopBottom:
             Search(row + 1, col, matrix, word, index + 1, isVisited, eSearch);
             break;
